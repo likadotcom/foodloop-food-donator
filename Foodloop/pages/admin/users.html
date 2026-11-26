@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Manage Users - FoodLoop</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Navigation -->
+    <nav class="bg-green-800 text-white p-4">
+        <h1 class="text-2xl font-bold">FoodLoop</h1>
+        <p>Food Collection Charity Management</p>
+    </nav>
+
+    <main class="p-6">
+
+        <h2 class="text-2xl font-bold mb-6">
+            Manage Users
+        </h2>
+
+        <!-- User statistics -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+
+            <div class="bg-white p-5 rounded-xl shadow">
+                <p class="text-gray-500">Total Users</p>
+                <h3 id="totalUsers"
+                    class="text-3xl font-bold text-green-700">0</h3>
+            </div>
+
+            <div class="bg-white p-5 rounded-xl shadow">
+                <p class="text-gray-500">Active Users</p>
+                <h3 id="activeUsers"
+                    class="text-3xl font-bold">0</h3>
+            </div>
+
+            <div class="bg-white p-5 rounded-xl shadow">
+                <p class="text-gray-500">Inactive Users</p>
+                <h3 id="inactiveUsers"
+                    class="text-3xl font-bold">0</h3>
+            </div>
+
+        </div>
+
+        <!-- Search and filter -->
+        <div class="bg-white p-5 rounded-xl shadow mb-6">
+
+            <div class="flex flex-col md:flex-row gap-4">
+
+                <input
+                    type="search"
+                    id="searchUser"
+                    placeholder="Search by name or email..."
+                    aria-label="Search users"
+                    class="border p-3 rounded-lg w-full">
+
+                <select id="roleFilter"
+                    aria-label="Filter users by role"
+                    class="border p-3 rounded-lg">
+
+                    <option value="Admin">Admin</option>
+
+                </select>
+
+                <button
+                    id="addUserButton"
+                    class="bg-green-700 text-white px-5 py-3 rounded-lg">
+                    Add User
+                </button>
+
+            </div>
+        </div>
+
+        <!-- Add user form -->
+        <form id="userForm"
+            class="hidden bg-white p-5 rounded-xl shadow mb-6">
+
+            <h3 class="text-xl font-bold mb-4">Register New User</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                <input id="userName"
+                    type="text"
+                    placeholder="Full name"
+                    aria-label="Full name"
+                    required
+                    class="border p-3 rounded-lg">
+
+                <input id="userEmail"
+                    type="email"
+                    placeholder="Email address"
+                    aria-label="Email address"
+                    required
+                    class="border p-3 rounded-lg">
+
+                <select id="userRole"
+                    aria-label="User role"
+                    required
+                    class="border p-3 rounded-lg">
+
+                    <option value="">Select role</option>
+                    <option value="Donor">Donor</option>
+                    <option value="Recipient">Recipient</option>
+                    <option value="Volunteer">Volunteer</option>
+
+                </select>
+
+            </div>
+
+            <button type="submit"
+                class="bg-green-700 text-white px-5 py-3 rounded-lg mt-4">
+                Save User
+            </button>
+
+            <button type="button"
+                id="cancelUserButton"
+                class="bg-gray-500 text-white px-5 py-3 rounded-lg mt-4">
+                Cancel
+            </button>
+
+            <p id="formMessage" role="status" class="mt-3"></p>
+
+        </form>
+
+        <!-- Users table -->
+        <div class="bg-white rounded-xl shadow overflow-x-auto">
+
+            <table class="w-full text-left">
+
+                <thead class="bg-green-800 text-white">
+                    <tr>
+                        <th class="p-4">Name</th>
+                        <th class="p-4">Email</th>
+                        <th class="p-4">Role</th>
+                        <th class="p-4">Status</th>
+                        <th class="p-4">Action</th>
+                    </tr>
+                </thead>
+
+                <tbody id="userTable"></tbody>
+
+            </table>
+
+            <p id="emptyMessage" class="hidden p-5 text-gray-500">
+                No users found.
+            </p>
+
+        </div>
+
+        <a href="dashboard.html"
+            class="inline-block mt-6 bg-gray-700 text-white p-3 rounded-lg">
+            Back to Dashboard
+        </a>
+
+    </main>
+
+    <script src="js/users.js"></script>
+
+</body>
+</html>

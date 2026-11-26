@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Manage Collections - FoodLoop</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+    <nav class="bg-green-800 text-white p-4">
+        <h1 class="text-2xl font-bold">FoodLoop</h1>
+        <p>Food Collection Charity Management</p>
+    </nav>
+
+    <main class="p-6">
+
+        <h2 class="text-2xl font-bold mb-6">
+            Manage Collections
+        </h2>
+
+        <!-- Collection statistics -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+
+            <div class="bg-white p-5 rounded-xl shadow">
+                <p class="text-gray-500">Total Collections</p>
+                <h3 id="totalCollections"
+                    class="text-3xl font-bold text-green-700">0</h3>
+            </div>
+
+            <div class="bg-white p-5 rounded-xl shadow">
+                <p class="text-gray-500">Pending Collections</p>
+                <h3 id="pendingCollections"
+                    class="text-3xl font-bold">0</h3>
+            </div>
+
+            <div class="bg-white p-5 rounded-xl shadow">
+                <p class="text-gray-500">Completed Collections</p>
+                <h3 id="completedCollections"
+                    class="text-3xl font-bold">0</h3>
+            </div>
+
+        </div>
+
+        <!-- Search and filter -->
+        <div class="bg-white p-5 rounded-xl shadow mb-6">
+
+            <div class="flex flex-col md:flex-row gap-4">
+
+                <input
+                    type="search"
+                    id="searchCollection"
+                    placeholder="Search donor or food..."
+                    aria-label="Search collections"
+                    class="border p-3 rounded-lg w-full">
+
+                <select id="statusFilter"
+                    aria-label="Filter by collection status"
+                    class="border p-3 rounded-lg">
+
+                    <option value="All">All Statuses</option>
+                    <option value="Pending">Pending</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <!-- Collections table -->
+        <div class="bg-white rounded-xl shadow overflow-x-auto">
+
+            <table class="w-full text-left">
+
+                <thead class="bg-green-800 text-white">
+                    <tr>
+                        <th class="p-4">Donor</th>
+                        <th class="p-4">Food Item</th>
+                        <th class="p-4">Quantity</th>
+                        <th class="p-4">Collection Date</th>
+                        <th class="p-4">Volunteer</th>
+                        <th class="p-4">Status</th>
+                        <th class="p-4">Action</th>
+                    </tr>
+                </thead>
+
+                <tbody id="collectionTable"></tbody>
+
+            </table>
+
+            <p id="emptyCollections"
+                class="hidden p-5 text-gray-500">
+                No collections found.
+            </p>
+
+        </div>
+
+        <a href="dashboard.html"
+            class="inline-block mt-6 bg-gray-700 text-white p-3 rounded-lg">
+            Back to Dashboard
+        </a>
+
+    </main>
+
+    <script src="js/collections.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>FoodLoop Reports</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+    <nav class="bg-green-800 text-white p-4">
+        <h1 class="text-2xl font-bold">FoodLoop</h1>
+        <p>Food Collection Charity Management</p>
+    </nav>
+
+    <main class="p-6">
+
+        <h2 class="text-2xl font-bold mb-6">
+            Charity Reports
+        </h2>
+
+        <p class="text-gray-600 mb-6">
+            Monitor food redistribution and collection performance.
+        </p>
+
+        <!-- Performance statistics -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+
+            <div class="bg-white p-6 rounded-xl shadow">
+                <p class="text-gray-500">Food Saved</p>
+                <h3 id="foodSaved"
+                    class="text-3xl font-bold text-green-700">0 kg</h3>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow">
+                <p class="text-gray-500">Completed Collections</p>
+                <h3 id="completed"
+                    class="text-3xl font-bold">0</h3>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow">
+                <p class="text-gray-500">Pending Collections</p>
+                <h3 id="pending"
+                    class="text-3xl font-bold">0</h3>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow">
+                <p class="text-gray-500">Registered Users</p>
+                <h3 id="users"
+                    class="text-3xl font-bold">0</h3>
+            </div>
+
+        </div>
+
+        <!-- Monthly food report -->
+        <div class="bg-white p-6 rounded-xl shadow mb-8">
+
+            <h3 class="text-xl font-bold mb-4">
+                Monthly Food Saved
+            </h3>
+
+            <p class="text-gray-500 mb-6">
+                Amount of surplus food redistributed each month.
+            </p>
+
+            <div id="monthlyChart"
+                class="flex items-end gap-4 h-64 border-b border-gray-300">
+            </div>
+
+        </div>
+
+        <!-- Collection performance -->
+        <div class="bg-white p-6 rounded-xl shadow mb-8">
+
+            <h3 class="text-xl font-bold mb-4">
+                Collection Performance
+            </h3>
+
+            <div class="mb-4">
+
+                <div class="flex justify-between mb-2">
+                    <span>Completed Collections</span>
+                    <span id="completedPercentage">0%</span>
+                </div>
+
+                <div class="w-full bg-gray-200 rounded-full h-4">
+
+                    <div id="completedBar"
+                        class="bg-green-600 h-4 rounded-full"
+                        style="width: 0%">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="mb-4">
+
+                <div class="flex justify-between mb-2">
+                    <span>Pending Collections</span>
+                    <span id="pendingPercentage">0%</span>
+                </div>
+
+                <div class="w-full bg-gray-200 rounded-full h-4">
+
+                    <div id="pendingBar"
+                        class="bg-yellow-500 h-4 rounded-full"
+                        style="width: 0%">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Report summary -->
+        <div class="bg-white p-6 rounded-xl shadow">
+
+            <h3 class="text-xl font-bold mb-4">
+                Charity Performance Summary
+            </h3>
+
+            <p id="reportSummary" class="text-gray-700">
+                Report information will appear here.
+            </p>
+
+        </div>
+
+        <button id="printReport"
+            class="bg-green-700 text-white px-5 py-3 rounded-lg mt-6">
+            Print Report
+        </button>
+
+        <a href="dashboard.html"
+            class="inline-block mt-6 bg-gray-700 text-white p-3 rounded-lg">
+            Back to Dashboard
+        </a>
+
+    </main>
+
+    <script src="js/reports.js"></script>
+
+</body>
+</html>

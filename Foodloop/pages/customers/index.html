@@ -1,0 +1,278 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>FoodLoop - Customer Dashboard</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Navigation -->
+    <nav class="bg-green-800 text-white p-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div>
+                <h1 class="text-2xl font-bold">FoodLoop</h1>
+                <p class="text-sm">Connecting Food, Saving Lives</p>
+            </div>
+
+            <a href="../index.html"
+                class="bg-green-600 px-4 py-2 rounded-lg">
+                Home
+            </a>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto p-6">
+
+        <!-- Welcome section -->
+        <section class="mb-8">
+            <h2 class="text-3xl font-bold text-gray-800">
+                Welcome to FoodLoop!
+            </h2>
+
+            <p class="text-gray-600 mt-2">
+                Help reduce food waste and support your local community.
+            </p>
+        </section>
+
+        <!-- User profile and role -->
+        <section class="bg-white p-6 rounded-xl shadow mb-8">
+
+            <div class="flex flex-col md:flex-row
+                        justify-between gap-4">
+
+                <div>
+                    <h3 class="text-xl font-bold" id="welcomeName">
+                        Hello, Customer!
+                    </h3>
+
+                    <p class="text-gray-500">
+                        Manage your FoodLoop account.
+                    </p>
+                </div>
+
+                <div>
+                    <label for="userRole"
+                        class="block font-semibold mb-2">
+                        Account type
+                    </label>
+
+                    <select id="userRole"
+                        class="border p-3 rounded-lg w-full">
+
+                        <option value="Recipient">Recipient Organisation</option>
+                        <option value="Donor">Food Donor</option>
+                        <option value="Volunteer">Volunteer Driver</option>
+
+                    </select>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Statistics -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+
+            <div class="bg-white p-6 rounded-xl shadow">
+                <p class="text-gray-500">Available Donations</p>
+                <h3 id="availableCount"
+                    class="text-3xl font-bold text-green-700">0</h3>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow">
+                <p class="text-gray-500">My Collections</p>
+                <h3 id="myCollections"
+                    class="text-3xl font-bold">0</h3>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow">
+                <p class="text-gray-500">Completed</p>
+                <h3 id="completedCount"
+                    class="text-3xl font-bold">0</h3>
+            </div>
+
+        </section>
+
+        <!-- Recipient dashboard -->
+        <section id="recipientSection">
+
+            <h3 class="text-2xl font-bold mb-4">
+                Available Food Donations
+            </h3>
+
+            <p class="text-gray-600 mb-4">
+                Browse surplus food available from local businesses.
+            </p>
+
+            <div class="mb-6">
+                <input type="search"
+                    id="searchFood"
+                    placeholder="Search food or donor..."
+                    aria-label="Search available food"
+                    class="border p-3 rounded-lg w-full bg-white">
+            </div>
+
+            <div id="donationList"
+                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            </div>
+
+        </section>
+
+        <!-- Donor dashboard -->
+        <section id="donorSection" class="hidden">
+
+            <h3 class="text-2xl font-bold mb-4">
+                Manage Your Food Donations
+            </h3>
+
+            <div class="bg-white p-6 rounded-xl shadow mb-6">
+
+                <h4 class="text-xl font-bold mb-4">
+                    Add Surplus Food
+                </h4>
+
+                <form id="donationForm">
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                        <div>
+                            <label for="foodName"
+                                class="block mb-2 font-semibold">
+                                Food name
+                            </label>
+
+                            <input id="foodName"
+                                type="text"
+                                required
+                                placeholder="e.g. Fresh bread"
+                                class="border p-3 rounded-lg w-full">
+                        </div>
+
+                        <div>
+                            <label for="foodQuantity"
+                                class="block mb-2 font-semibold">
+                                Quantity (kg)
+                            </label>
+
+                            <input id="foodQuantity"
+                                type="number"
+                                min="0.1"
+                                step="0.1"
+                                required
+                                placeholder="e.g. 15"
+                                class="border p-3 rounded-lg w-full">
+                        </div>
+
+                        <div>
+                            <label for="collectionDate"
+                                class="block mb-2 font-semibold">
+                                Collection date
+                            </label>
+
+                            <input id="collectionDate"
+                                type="date"
+                                required
+                                class="border p-3 rounded-lg w-full">
+                        </div>
+
+                        <div>
+                            <label for="collectionTime"
+                                class="block mb-2 font-semibold">
+                                Collection time
+                            </label>
+
+                            <input id="collectionTime"
+                                type="time"
+                                required
+                                class="border p-3 rounded-lg w-full">
+                        </div>
+
+                        <div class="md:col-span-2">
+                            <label for="foodSafety"
+                                class="block mb-2 font-semibold">
+                                Food safety information
+                            </label>
+
+                            <textarea id="foodSafety"
+                                required
+                                rows="3"
+                                placeholder="Enter allergens, storage conditions and use-by information..."
+                                class="border p-3 rounded-lg w-full">
+                            </textarea>
+                        </div>
+
+                    </div>
+
+                    <button type="submit"
+                        class="bg-green-700 text-white px-6 py-3 rounded-lg mt-4">
+                        Publish Donation
+                    </button>
+
+                    <p id="donationMessage"
+                        role="status"
+                        class="mt-3 text-green-700">
+                    </p>
+
+                </form>
+
+            </div>
+
+            <h4 class="text-xl font-bold mb-4">
+                My Donations
+            </h4>
+
+            <div id="myDonations"
+                class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            </div>
+
+        </section>
+
+        <!-- Volunteer dashboard -->
+        <section id="volunteerSection" class="hidden">
+
+            <h3 class="text-2xl font-bold mb-4">
+                Volunteer Collection Requests
+            </h3>
+
+            <p class="text-gray-600 mb-4">
+                Help transport surplus food to organisations that need it.
+            </p>
+
+            <div id="volunteerList"
+                class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            </div>
+
+        </section>
+
+        <!-- My collection activity -->
+        <section class="mt-10 bg-white p-6 rounded-xl shadow">
+
+            <h3 class="text-xl font-bold mb-4">
+                My Collection Activity
+            </h3>
+
+            <div id="activityList">
+                <p class="text-gray-500">
+                    No collection activity yet.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center text-gray-500 mt-10 pb-6">
+            <p>FoodLoop - Reducing Food Waste, Supporting Communities.</p>
+        </footer>
+
+    </main>
+
+    <script src="../js/customer.js"></script>
+
+</body>
+</html>
